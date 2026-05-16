@@ -25,6 +25,9 @@ func main() {
 	r := gin.Default()
 
 	// Public routes
+	r.GET("/", func(c *gin.Context) {
+		c.JSON(200, gin.H{"message": "Golang Auth Service is running!"})
+	})
 	r.POST("/signup", controllers.Signup)
 	r.POST("/login", controllers.Login)
 

@@ -39,6 +39,7 @@ A lightweight Golang backend service with JWT authentication and role-based acce
 
 ### Public APIs
 
+- **GET `/`**: Health check. Returns "Golang Auth Service is running!".
 - **POST `/signup`**: Create a new user.
   - Body: `{ "username": "...", "email": "...", "password": "...", "role": "user" }`
 - **POST `/login`**: Authenticate and get a JWT token.
