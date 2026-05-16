@@ -1,5 +1,7 @@
 # Go Auth Service
 
+**Live Demo**: [https://go-project-7qny.onrender.com](https://go-project-7qny.onrender.com)
+
 A lightweight Golang backend service with JWT authentication and role-based access control (RBAC).
 
 ## Features
@@ -33,6 +35,8 @@ A lightweight Golang backend service with JWT authentication and role-based acce
 
 ## API Endpoints
 
+**Base URL**: `https://go-project-7qny.onrender.com` (or `http://localhost:8080` for local development)
+
 ### Public APIs
 
 - **POST `/signup`**: Create a new user.
@@ -44,6 +48,41 @@ A lightweight Golang backend service with JWT authentication and role-based acce
 
 - **GET `/profile`**: Get current user's profile.
 - **GET `/users`** (Admin Only): Get list of all users.
+
+## Testing with Live URL
+
+You can test the live APIs using `curl`:
+
+1. **Signup**:
+
+   ```bash
+   curl -X POST https://go-project-7qny.onrender.com/signup \
+     -H "Content-Type: application/json" \
+     -d '{"username": "testuser", "email": "test@example.com", "password": "password123", "role": "user"}'
+   ```
+
+2. **Login**:
+
+   ```bash
+   curl -X POST https://go-project-7qny.onrender.com/login \
+     -H "Content-Type: application/json" \
+     -d '{"email": "test@example.com", "password": "password123"}'
+   ```
+
+   _(Copy the token from the response)_
+
+3. **Get Profile**:
+
+   ```bash
+   curl -X GET https://go-project-7qny.onrender.com/profile \
+     -H "Authorization: Bearer YOUR_TOKEN_HERE"
+   ```
+
+4. **Get All Users** (Requires Admin role):
+   ```bash
+   curl -X GET https://go-project-7qny.onrender.com/users \
+     -H "Authorization: Bearer YOUR_ADMIN_TOKEN_HERE"
+   ```
 
 ## Project Structure
 
